@@ -1,0 +1,15 @@
+#!/bin/sh
+TARGET_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$TARGET_BRANCH" != "sandbox" ] || [ "$TARGET_BRANCH" = "prod" ]; then
+  echo "Running tests before merging into $TARGET_BRANCH..."
+
+pnpm run pre-commit
+
+  TEST_EXIT_CODE=$?
+
+  if [ $TEST_EXIT_CODE -ne 0 ]; then
+    echo "Tests failed. Aborting merge."
+    exit 1
+  fi
+fi

@@ -1,0 +1,16 @@
+{
+  "name": "test-husky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Running qa\" && exit 0",
+    "pre-commit": "echo \"runing pre-commit PROD\" && exit 0",
+    "prepare": "husky"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.1.6"
+  }
+}
